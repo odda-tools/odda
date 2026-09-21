@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ضغط الصور وتحويلها إلى WebP | عُدّة</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <meta
+    name="description"
+    content="اضغط صورك وحولها إلى WebP مجانًا مع الحفاظ على الجودة."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .tool-page {
+      width: min(850px, calc(100% - 30px ));
+      margin: 45px auto 80px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tool-box {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-title {
+      margin-bottom: 8px;
+      font-size: 32px;
+    }
+
+    .tool-description {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .upload-area {
+      display: block;
+      padding: 45px 20px;
+      border: 2px dashed #c9c1ff;
+      border-radius: 18px;
+      color: var(--muted);
+      background: rgba(108, 77, 246, 0.04);
+      cursor: pointer;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .upload-area:hover {
+      border-color: var(--primary);
+      background: rgba(108, 77, 246, 0.09);
+    }
+
+    .upload-icon {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 42px;
+    }
+
+    .upload-area strong,
+    .upload-area small {
+      display: block;
+    }
+
+    .upload-area strong {
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .upload-area small {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    #imageInput {
+      display: none;
+    }
+
+    .settings {
+      display: none;
+      margin-top: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .quality-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quality-row input {
+      flex: 1;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    #qualityValue {
+      min-width: 45px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .compress-button,
+    .download-button {
+      width: 100%;
+      height: 54px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background: var(--primary);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+    }
+
+    .compress-button:hover,
+    .download-button:hover {
+      background: var(--primary-dark);
+    }
+
+    .result {
+      display: none;
+      margin-top: 28px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .preview-image {
+      max-width: 100%;
+      max-height: 260px;
+      display: block;
+      margin: 0 auto 22px;
+      border-radius: 14px;
+      object-fit: contain;
+    }
+
+    .file-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .info-card {
+      padding: 14px 8px;
+      border-radius: 12px;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .info-card span,
+    .info-card strong {
+      display: block;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .info-card strong {
+      margin-top: 4px;
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    .download-button {
+      display: block;
+      padding-top: 14px;
+      text-align: center;
+      background: #252638;
+    }
+
+    @media (max-width: 600px) {
+      .tool-box {
+        padding: 24px 18px;
+      }
+
+      .tool-title {
+        font-size: 26px;
+      }
+
+      .file-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">ع</span>
+      <span>عُدّة</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#tools">الأدوات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#about">عن عُدّة</a>
+    </nav>
+
+    <button class="theme-button" id="themeButton">◐</button>
+  </header>
+
+  <main class="tool-page">
+    <a href="index.html" class="back-link">→ العودة إلى الأدوات</a>
+
+    <section class="tool-box">
+      <h1 class="tool-title">ضغط الصور وتحويلها إلى WebP</h1>
+
+      <p class="tool-description">
+        صغّر حجم صورك وحوّلها إلى WebP مباشرة من المتصفح بدون رفعها لأي سيرفر.
+      </p>
+
+      <label class="upload-area" for="imageInput">
+        <span class="upload-icon">▧</span>
+        <strong>اضغط لاختيار صورة</strong>
+        <small>JPG أو PNG أو WebP — أقصى حجم 10MB</small>
+      </label>
+
+      <input id="imageInput" type="file" accept="image/*" />
+
+      <div class="settings" id="settings">
+        <label class="form-label" for="quality">
+          جودة الصورة: <span id="qualityValue">80%</span>
+        </label>
+
+        <div class="quality-row">
+          <input id="quality" type="range" min="10" max="100" value="80" />
+        </div>
+
+        <button class="compress-button" id="compressButton">
+          ضغط وتحويل الصورة
+        </button>
+      </div>
+
+      <div class="result" id="result">
+        <img class="preview-image" id="previewImage" alt="الصورة المضغوطة" />
+
+        <div class="file-info">
+          <div class="info-card">
+            <span>الحجم الأصلي</span>
+            <strong id="originalSize">-</strong>
+          </div>
+
+          <div class="info-card">
+            <span>الحجم الجديد</span>
+            <strong id="newSize">-</strong>
+          </div>
+
+          <div class="info-card">
+            <span>التوفير</span>
+            <strong id="savedSize">-</strong>
+          </div>
+        </div>
+
+        <a class="download-button" id="downloadButton" download="odda-image.webp">
+          تحميل الصورة WebP
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <span class="logo-icon">ع</span>
+      <strong>عُدّة</strong>
+    </div>
+
+    <p>أدوات ذكية وبسيطة تساعدك تنجز شغلك.</p>
+  </footer>
+
+  <script>
+    const imageInput = document.getElementById("imageInput");
+    const quality = document.getElementById("quality");
+    const qualityValue = document.getElementById("qualityValue");
+    const settings = document.getElementById("settings");
+    const compressButton = document.getElementById("compressButton");
+    const result = document.getElementById("result");
+    const previewImage = document.getElementById("previewImage");
+    const downloadButton = document.getElementById("downloadButton");
+    const originalSize = document.getElementById("originalSize");
+    const newSize = document.getElementById("newSize");
+    const savedSize = document.getElementById("savedSize");
+    const themeButton = document.getElementById("themeButton");
+
+    let selectedFile = null;
+
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes + " B";
+      if (bytes < 1024 * 1024) {
+        return (bytes / 1024).toFixed(1) + " KB";
+      }
+      return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+    }
+
+    imageInput.addEventListener("change", function () {
+      selectedFile = imageInput.files[0];
+
+      if (!selectedFile) return;
+
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        alert("حجم الصورة أكبر من 10MB.");
+        imageInput.value = "";
+        return;
+      }
+
+      settings.style.display = "block";
+      result.style.display = "none";
+    });
+
+    quality.addEventListener("input", function () {
+      qualityValue.textContent = quality.value + "%";
+    });
+
+    compressButton.addEventListener("click", function () {
+      if (!selectedFile) return;
+
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const image = new Image();
+
+        image.onload = function () {
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+
+          canvas.width = image.width;
+          canvas.height = image.height;
+
+          context.drawImage(image, 0, 0);
+
+          const compressedUrl = canvas.toDataURL(
+            "image/webp",
+            Number(quality.value) / 100
+          );
+
+          const base64Length = compressedUrl.split(",")[1].length;
+          const compressedBytes = Math.ceil(base64Length * 0.75);
+          const saving = Math.max(
+            0,
+            Math.round((1 - compressedBytes / selectedFile.size) * 100)
+          );
+
+          previewImage.src = compressedUrl;
+          downloadButton.href = compressedUrl;
+
+          originalSize.textContent = formatSize(selectedFile.size);
+          newSize.textContent = formatSize(compressedBytes);
+          savedSize.textContent = saving + "%";
+
+          result.style.display = "block";
+        };
+
+        image.src = event.target.result;
+      };
+
+      reader.readAsDataURL(selectedFile);
+    });
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      themeButton.textContent =
+        document.body.classList.contains("dark") ? "☀" : "◐";
+    });
+  </script>
+</body>
+</html>

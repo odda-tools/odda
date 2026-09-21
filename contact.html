@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>تواصل معنا | عُدّة</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+
+  <meta
+    name="description"
+    content="تواصل مع فريق عُدّة وأرسل اقتراحاتك وملاحظاتك."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .contact-page {
+      width: min(950px, calc(100% - 30px ));
+      margin: 45px auto 80px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-label {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .contact-title {
+      margin: 8px 0 14px;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    .contact-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .contact-info {
+      margin-top: 28px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--primary);
+      background: rgba(108, 77, 246, 0.1);
+      font-size: 19px;
+    }
+
+    .info-item strong,
+    .info-item small {
+      display: block;
+    }
+
+    .info-item strong {
+      font-size: 13px;
+    }
+
+    .info-item small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      color: var(--text);
+      background: var(--bg);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .form-input {
+      height: 50px;
+    }
+
+    .form-textarea {
+      min-height: 135px;
+      padding-top: 13px;
+      resize: vertical;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .submit-button {
+      width: 100%;
+      height: 52px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background: var(--primary);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .submit-button:hover {
+      background: var(--primary-dark);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 14px;
+      padding: 11px;
+      border-radius: 10px;
+      color: #238354;
+      background: #e6f8ed;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .contact-page {
+        margin-top: 25px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        padding: 24px 18px;
+      }
+
+      .contact-title {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">ع</span>
+      <span>عُدّة</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#tools">الأدوات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="about.html">عن عُدّة</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <button class="theme-button" id="themeButton">
+      ◐
+    </button>
+  </header>
+
+  <main class="contact-page">
+    <a href="index.html" class="back-link">
+      → العودة إلى الصفحة الرئيسية
+    </a>
+
+    <div class="contact-layout">
+      <section class="contact-card">
+        <span class="contact-label">نحن نسمعك</span>
+
+        <h1 class="contact-title">
+          عندك اقتراح؟
+            
+
+          <span style="color: var(--primary);">كلمنا</span>
+        </h1>
+
+        <p class="contact-text">
+          رأيك بيساعدنا نطوّر عُدّة ونضيف أدوات مفيدة أكتر. ابعتلنا اقتراحك
+          أو أي ملاحظة عندك.
+        </p>
+
+        <div class="contact-info">
+          <div class="info-item">
+            <span class="info-icon">✉</span>
+            <div>
+              <strong>البريد الإلكتروني</strong>
+              <small>hello@odda-tools.com</small>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">◉</span>
+            <div>
+              <strong>وقت الرد</strong>
+              <small>نحاول الرد خلال 48 ساعة</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-card">
+        <form id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="nameInput">الاسم</label>
+            <input
+              class="form-input"
+              id="nameInput"
+              type="text"
+              placeholder="اكتب اسمك"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="emailInput">
+              البريد الإلكتروني
+            </label>
+            <input
+              class="form-input"
+              id="emailInput"
+              type="email"
+              placeholder="example@email.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="messageInput">رسالتك</label>
+            <textarea
+              class="form-textarea"
+              id="messageInput"
+              placeholder="اكتب اقتراحك أو رسالتك هنا..."
+              required
+            ></textarea>
+          </div>
+
+          <button class="submit-button" type="submit">
+            إرسال الرسالة
+          </button>
+
+          <div class="success-message" id="successMessage">
+            تم استلام رسالتك بنجاح. شكرًا لتواصلك معنا.
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <span class="logo-icon">ع</span>
+      <strong>عُدّة</strong>
+    </div>
+
+    <p>أدوات ذكية وبسيطة تساعدك تنجز شغلك.</p>
+
+    <span class="copyright">
+      © 2026 عُدّة. جميع الحقوق محفوظة.
+    </span>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+    const themeButton = document.getElementById("themeButton");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      successMessage.style.display = "block";
+      contactForm.reset();
+    });
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      themeButton.textContent =
+        document.body.classList.contains("dark") ? "☀" : "◐";
+    });
+  </script>
+</body>
+</html>

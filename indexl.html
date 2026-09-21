@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>عُدّة | أدوات ذكية لشغلك ومحتواك</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <meta
+    name="description"
+    content="عُدّة توفر لك أدوات عربية مجانية لصناعة المحتوى، التصميم، الحسابات والتسويق."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="#" class="logo">
+      <span class="logo-icon">ع</span>
+      <span>عُدّة</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#tools">الأدوات</a>
+      <a href="#categories">التصنيفات</a>
+      <a href="about.html">عن عُدّة</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    
+
+    <button class="theme-button" id="themeButton" aria-label="تغيير المظهر">
+      ◐
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          أدوات مجانية بالعربي
+        </div>
+
+        <h1>
+          كل أدواتك في
+          <span>مكان واحد</span>
+        </h1>
+
+        <p>
+          أدوات بسيطة وسريعة تساعدك في صناعة المحتوى، التصميم، التسويق
+          وإنجاز شغلك اليومي.
+        </p>
+
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="ابحث عن أداة..."
+          />
+          <button id="searchButton">بحث</button>
+        </div>
+
+        <button id="showAllTools" class="show-all-button">
+          عرض كل الأدوات
+        </button>
+        
+
+        <div class="quick-links">
+          <span>الأكثر بحثًا:</span>
+          <button class="quick-link" data-search="QR">QR Code</button>
+          <button class="quick-link" data-search="صور">ضغط الصور</button>
+          <button class="quick-link" data-search="كابشن">مولد كابشن</button>
+        </div>
+      </div>
+
+      <div class="hero-decoration">
+        <div class="floating-card card-one">
+          <span>✦</span>
+          <div>
+            <strong>أداة جديدة</strong>
+            <small>مولد أفكار محتوى</small>
+          </div>
+        </div>
+
+        <div class="main-orb">
+          <div class="orb-symbol">ع</div>
+        </div>
+
+        <div class="floating-card card-two">
+          <span>✓</span>
+          <div>
+            <strong>سريع ومجاني</strong>
+            <small>بدون تسجيل</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools-section" id="tools">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">اكتشف أدواتنا</span>
+          <h2>أدوات تساعدك تنجز أكتر</h2>
+        </div>
+
+        <a href="#tools" class="view-all">عرض كل الأدوات ←</a>
+      </div>
+
+      <div class="tools-grid" id="toolsGrid">
+        <article
+  class="tool-card"
+  data-category="content"
+  data-name="مولد كابشن منشورات محتوى"
+>
+
+          <div class="tool-icon purple">✎</div>
+          <div class="tool-card-content">
+            <span class="tool-category">صناعة المحتوى</span>
+            <h3>مولد كابشن</h3>
+            <p>اكتب كابشن جذاب لمنشوراتك في ثواني.</p>
+            <a href="caption.html" class="tool-link">
+              استخدم الأداة <span>←</span>
+            </a>
+            
+          </div>
+        </article>
+
+        <article
+  class="tool-card"
+  data-category="design"
+  data-name="ضغط الصور تحويل webp"
+>
+
+          <div class="tool-icon blue">▣</div>
+          <div class="tool-card-content">
+            <span class="tool-category">الصور والتصميم</span>
+            <h3>ضغط الصور</h3>
+            <p>قلل حجم صورك مع الحفاظ على جودتها.</p>
+            <a href="images.html" class="tool-link">
+              استخدم الأداة <span>←</span>
+            </a>
+            
+          </div>
+        </article>
+
+        <article
+  class="tool-card"
+  data-category="general"
+  data-name="مولد qr كود"
+>
+
+          <div class="tool-icon orange">▦</div>
+          <div class="tool-card-content">
+            <span class="tool-category">أدوات عامة</span>
+            <h3>مولد QR Code</h3>
+            <p>حوّل أي رابط إلى QR Code بشكل فوري.</p>
+            <a href="qr.html" class="tool-link">
+              استخدم الأداة <span>←</span>
+            </a>
+            
+          </div>
+        </article>
+
+        <article
+  class="tool-card"
+  data-category="calculations"
+  data-name="حاسبة الربح الخصم السعر"
+>
+
+          <div class="tool-icon green">٪</div>
+          <div class="tool-card-content">
+            <span class="tool-category">الحسابات</span>
+            <h3>حاسبة الربح والخصم</h3>
+            <p>احسب سعر البيع والربح ونسبة الخصم بسهولة.</p>
+            <a href="calculator.html" class="tool-link">
+              استخدم الأداة <span>←</span>
+            </a>
+            
+          </div>
+        </article>
+
+        <article
+  class="tool-card"
+  data-category="content"
+  data-name="مولد bio انستجرام تيك توك"
+>
+
+          <div class="tool-icon pink">♡</div>
+          <div class="tool-card-content">
+            <span class="tool-category">السوشيال ميديا</span>
+            <h3>مولد Bio</h3>
+            <p>اعمل Bio احترافي لحسابك على السوشيال ميديا.</p>
+            <a href="bio.html" class="tool-link">
+              استخدم الأداة <span>←</span>
+            </a>
+            
+          </div>
+        </article>
+
+        <article
+  class="tool-card"
+  data-category="content"
+  data-name="أفكار محتوى فيديو"
+>
+
+          <div class="tool-icon yellow">✦</div>
+          <div class="tool-card-content">
+            <span class="tool-category">الإبداع</span>
+            <h3>أفكار محتوى</h3>
+            <p>احصل على أفكار جديدة تناسب مجالك وجمهورك.</p>
+            <a href="ideas.html" class="tool-link">
+              استخدم الأداة <span>←</span>
+            </a>
+            
+          </div>
+        </article>
+      </div>
+
+      <p class="no-results" id="noResults">
+        مفيش أدوات مطابقة للبحث حاليًا.
+      </p>
+    </section>
+
+    <section class="categories-section" id="categories">
+      <div class="section-heading centered">
+        <span class="section-label">نظّم شغلك</span>
+        <h2>اختار التصنيف المناسب</h2>
+      </div>
+
+      ategories-grid">
+      <div class="categories-grid">
+        <button class="category-card" data-category-filter="content">
+          <span>✎</span>
+          <strong>صناعة المحتوى</strong>
+          <small>3 أدوات</small>
+        </button>
+      
+        <button class="category-card" data-category-filter="design">
+          <span>▣</span>
+          <strong>الصور والتصميم</strong>
+          <small>1 أداة</small>
+        </button>
+      
+        <button class="category-card" data-category-filter="calculations">
+          <span>٪</span>
+          <strong>الحسابات</strong>
+          <small>1 أداة</small>
+        </button>
+      
+        <button class="category-card" data-category-filter="general">
+          <span>◆</span>
+          <strong>أدوات عامة</strong>
+          <small>1 أداة</small>
+        </button>
+      </div>
+      
+    </section>
+  </main>
+
+  <footer id="about">
+    <div class="footer-logo">
+      <span class="logo-icon">ع</span>
+      <strong>عُدّة</strong>
+    </div>
+    <p>أدوات ذكية وبسيطة تساعدك تنجز شغلك.</p>
+    <span class="copyright">© 2026 عُدّة. جميع الحقوق محفوظة.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

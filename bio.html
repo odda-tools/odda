@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>مولد Bio احترافي | عُدّة</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <meta
+    name="description"
+    content="أنشئ Bio احترافي لإنستجرام وتيك توك مجانًا."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .tool-page {
+      width: min(900px, calc(100% - 30px ));
+      margin: 45px auto 80px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tool-box {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-title {
+      margin-bottom: 8px;
+      font-size: 32px;
+    }
+
+    .tool-description {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bio-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      height: 50px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      border-color: var(--primary);
+    }
+
+    .generate-button,
+    .copy-button {
+      width: 100%;
+      height: 52px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background: var(--primary);
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .generate-button:hover,
+    .copy-button:hover {
+      background: var(--primary-dark);
+    }
+
+    .preview-title {
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .bio-preview {
+      min-height: 205px;
+      margin-bottom: 15px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(108, 77, 246, 0.1), transparent),
+        var(--bg);
+    }
+
+    .preview-name {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .preview-text {
+      min-height: 90px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 2;
+      white-space: pre-line;
+    }
+
+    .copy-button {
+      background: #252638;
+    }
+
+    .copy-button:hover {
+      background: #161725;
+    }
+
+    .copy-message {
+      display: none;
+      margin-top: 10px;
+      color: #32a56a;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      .tool-box {
+        padding: 24px 18px;
+      }
+
+      .tool-title {
+        font-size: 26px;
+      }
+
+      .bio-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">ع</span>
+      <span>عُدّة</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#tools">الأدوات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#about">عن عُدّة</a>
+    </nav>
+
+    <button class="theme-button" id="themeButton">◐</button>
+  </header>
+
+  <main class="tool-page">
+    <a href="index.html" class="back-link">→ العودة إلى الأدوات</a>
+
+    <section class="tool-box">
+      <h1 class="tool-title">مولد Bio احترافي</h1>
+
+      <p class="tool-description">
+        اكتب بياناتك وخد Bio جاهز لإنستجرام أو تيك توك.
+      </p>
+
+      <div class="bio-layout">
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="nameInput">اسمك أو اسم البراند</label>
+            <input
+              class="form-input"
+              id="nameInput"
+              type="text"
+              placeholder="مثال: أحمد محمد"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="jobInput">مجالك أو وظيفتك</label>
+            <input
+              class="form-input"
+              id="jobInput"
+              type="text"
+              placeholder="مثال: مصمم جرافيك"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="goalInput">ماذا تقدم؟</label>
+            <input
+              class="form-input"
+              id="goalInput"
+              type="text"
+              placeholder="مثال: أساعد البراندات تكبر"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="platformSelect">المنصة</label>
+            <select class="form-select" id="platformSelect">
+              <option value="instagram">Instagram</option>
+              <option value="tiktok">TikTok</option>
+              <option value="linkedin">LinkedIn</option>
+            </select>
+          </div>
+
+          <button class="generate-button" id="generateButton">
+            إنشاء الـ Bio
+          </button>
+        </div>
+
+        <div>
+          <div class="preview-title">المعاينة</div>
+
+          <div class="bio-preview">
+            <div class="preview-name" id="previewName">
+              اسمك هنا
+            </div>
+
+            <div class="preview-text" id="previewText">
+              مجالك أو وظيفتك
+              أضف معلوماتك واضغط إنشاء الـ Bio
+            </div>
+          </div>
+
+          <button class="copy-button" id="copyButton">
+            نسخ الـ Bio
+          </button>
+
+          <div class="copy-message" id="copyMessage">
+            تم نسخ الـ Bio بنجاح
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <span class="logo-icon">ع</span>
+      <strong>عُدّة</strong>
+    </div>
+
+    <p>أدوات ذكية وبسيطة تساعدك تنجز شغلك.</p>
+  </footer>
+
+  <script>
+    const nameInput = document.getElementById("nameInput");
+    const jobInput = document.getElementById("jobInput");
+    const goalInput = document.getElementById("goalInput");
+    const platformSelect = document.getElementById("platformSelect");
+    const generateButton = document.getElementById("generateButton");
+    const copyButton = document.getElementById("copyButton");
+    const previewName = document.getElementById("previewName");
+    const previewText = document.getElementById("previewText");
+    const copyMessage = document.getElementById("copyMessage");
+    const themeButton = document.getElementById("themeButton");
+
+    let generatedBio = "";
+
+    generateButton.addEventListener("click", function () {
+      const name = nameInput.value.trim() || "اسمك هنا";
+      const job = jobInput.value.trim() || "صانع محتوى";
+      const goal = goalInput.value.trim() || "أشارك أفكاري وخبرتي";
+
+      let icon = "✨";
+
+      if (platformSelect.value === "tiktok") {
+        icon = "🎥";
+      }
+
+      if (platformSelect.value === "linkedin") {
+        icon = "💼";
+      }
+
+      generatedBio =
+        `${icon} ${job}\n` +
+        `${goal}\n` +
+        `📩 للتعاون والشغل: راسلني\n` +
+        `👇 تابعني للمزيد`;
+
+      previewName.textContent = name;
+      previewText.textContent = generatedBio;
+      copyMessage.style.display = "none";
+    });
+
+    copyButton.addEventListener("click", async function () {
+      if (!generatedBio) {
+        generatedBio = previewText.textContent;
+      }
+
+      try {
+        await navigator.clipboard.writeText(generatedBio);
+        copyMessage.style.display = "block";
+
+        setTimeout(function () {
+          copyMessage.style.display = "none";
+        }, 2500);
+      } catch (error) {
+        alert("حدد النص وانسخه يدويًا.");
+      }
+    });
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      themeButton.textContent =
+        document.body.classList.contains("dark") ? "☀" : "◐";
+    });
+  </script>
+</body>
+</html>

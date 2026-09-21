@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>مولد أفكار محتوى | عُدّة</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <meta
+    name="description"
+    content="احصل على أفكار محتوى جديدة للسوشيال ميديا مجانًا."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .tool-page {
+      width: min(850px, calc(100% - 30px ));
+      margin: 45px auto 80px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tool-box {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-title {
+      margin-bottom: 8px;
+      font-size: 32px;
+    }
+
+    .tool-description {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      height: 52px;
+      padding: 0 15px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      color: var(--text);
+      background: var(--bg);
+      font-family: inherit;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      border-color: var(--primary);
+    }
+
+    .generate-button,
+    .copy-button {
+      width: 100%;
+      height: 54px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background: var(--primary);
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .generate-button:hover {
+      background: var(--primary-dark);
+    }
+
+    .idea-result {
+      display: none;
+      margin-top: 28px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(108, 77, 246, 0.1), transparent),
+        var(--bg);
+    }
+
+    .idea-label {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .idea-result h2 {
+      margin: 7px 0 12px;
+      font-size: 23px;
+    }
+
+    .idea-result p {
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .copy-button {
+      margin-top: 18px;
+      background: #252638;
+    }
+
+    .copy-button:hover {
+      background: #161725;
+    }
+
+    .copy-message {
+      display: none;
+      margin-top: 10px;
+      color: #32a56a;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .tool-box {
+        padding: 24px 18px;
+      }
+
+      .tool-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">ع</span>
+      <span>عُدّة</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#tools">الأدوات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#about">عن عُدّة</a>
+    </nav>
+
+    <button class="theme-button" id="themeButton">◐</button>
+  </header>
+
+  <main class="tool-page">
+    <a href="index.html" class="back-link">→ العودة إلى الأدوات</a>
+
+    <section class="tool-box">
+      <h1 class="tool-title">مولد أفكار محتوى</h1>
+
+      <p class="tool-description">
+        اختار مجالك والمنصة، وخد فكرة محتوى جاهزة تبدأ بيها فورًا.
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="fieldSelect">مجالك</label>
+
+        <select class="form-select" id="fieldSelect">
+          <option value="business">البيزنس والمشاريع</option>
+          <option value="design">التصميم</option>
+          <option value="fitness">الرياضة</option>
+          <option value="education">التعليم</option>
+          <option value="food">الأكل والوصفات</option>
+          <option value="technology">التكنولوجيا</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="platformSelect">المنصة</label>
+
+        <select class="form-select" id="platformSelect">
+          <option value="instagram">Instagram</option>
+          <option value="tiktok">TikTok</option>
+          <option value="youtube">YouTube</option>
+          <option value="facebook">Facebook</option>
+        </select>
+      </div>
+
+      <button class="generate-button" id="generateButton">
+        اطلعلي فكرة
+      </button>
+
+      <div class="idea-result" id="ideaResult">
+        <span class="idea-label">فكرة محتوى مناسبة لك</span>
+        <h2 id="ideaTitle"></h2>
+        <p id="ideaDescription"></p>
+
+        <button class="copy-button" id="copyButton">
+          نسخ الفكرة
+        </button>
+
+        <div class="copy-message" id="copyMessage">
+          تم نسخ الفكرة بنجاح
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <span class="logo-icon">ع</span>
+      <strong>عُدّة</strong>
+    </div>
+
+    <p>أدوات ذكية وبسيطة تساعدك تنجز شغلك.</p>
+  </footer>
+
+  <script>
+    const ideas = {
+      business: [
+        {
+          title: "3 أخطاء بتخسر بسببها عملاء",
+          description: "اعمل فيديو قصير تشرح فيه 3 أخطاء شائعة في مجالك، وفي النهاية قدم حلًا عمليًا لكل خطأ."
+        },
+        {
+          title: "من الصفر إلى أول عميل",
+          description: "احكِ تجربتك أو اعرض خطوات واضحة تساعد المبتدئ في الوصول إلى أول عميل."
+        },
+        {
+          title: "خلف الكواليس",
+          description: "صوّر كيف تنفذ خدمتك أو تجهز منتجك من البداية حتى النهاية."
+        }
+      ],
+
+      design: [
+        {
+          title: "قبل وبعد التصميم",
+          description: "اعرض تصميمًا قديمًا ثم وضّح كيف حسّنته باستخدام الألوان والخطوط والتوزيع."
+        },
+        {
+          title: "5 أخطاء في التصميم",
+          description: "اشرح أخطاء التصميم التي يكررها المبتدئون مع عرض مثال بصري لكل خطأ."
+        },
+        {
+          title: "صمّم معي",
+          description: "ابدأ بتصميم فارغ وسجّل خطوات عملك حتى الوصول إلى النتيجة النهائية."
+        }
+      ],
+
+      fitness: [
+        {
+          title: "تمرين سريع في البيت",
+          description: "اعرض روتينًا بسيطًا من 3 تمارين يمكن تنفيذه في المنزل بدون معدات."
+        },
+        {
+          title: "أخطاء المبتدئين",
+          description: "اشرح أكثر الأخطاء شيوعًا أثناء التمرين وكيفية تنفيذ الحركة بطريقة أفضل."
+        },
+        {
+          title: "تحدي 7 أيام",
+          description: "ابدأ تحديًا بسيطًا لمدة أسبوع واطلب من المتابعين المشاركة معك."
+        }
+      ],
+
+      education: [
+        {
+          title: "اشرح المعلومة في دقيقة",
+          description: "اختار معلومة صعبة واشرحها بطريقة بسيطة باستخدام مثال من الحياة اليومية."
+        },
+        {
+          title: "اختبر معلوماتك",
+          description: "اعرض سؤالًا مع 3 اختيارات، واترك الإجابة في نهاية الفيديو."
+        },
+        {
+          title: "ملخص سريع",
+          description: "لخّص درسًا أو موضوعًا كاملًا في نقاط قصيرة وسهلة الحفظ."
+        }
+      ],
+
+      food: [
+        {
+          title: "وصفة بمكونات قليلة",
+          description: "اعرض وصفة سهلة بمكونات موجودة غالبًا في كل بيت."
+        },
+        {
+          title: "سر نجاح الوصفة",
+          description: "شارك سرًا صغيرًا يجعل الوصفة أفضل، مثل طريقة التسوية أو اختيار المكونات."
+        },
+        {
+          title: "تجربة وصفة مشهورة",
+          description: "جرّب وصفة منتشرة وقيّم النتيجة مع ذكر التعديلات التي أجريتها."
+        }
+      ],
+
+      technology: [
+        {
+          title: "أداة مجانية مفيدة",
+          description: "عرّف جمهورك على أداة مجانية واشرح أهم استخداماتها في أقل من دقيقة."
+        },
+        {
+          title: "مقارنة بين تطبيقين",
+          description: "قارن بين تطبيقين يؤديان نفس الوظيفة واذكر أفضل استخدام لكل واحد."
+        },
+        {
+          title: "نصيحة تقنية",
+          description: "شارك اختصارًا أو إعدادًا مخفيًا يوفر وقت المستخدم ويحسن تجربته."
+        }
+      ]
+    };
+
+    const fieldSelect = document.getElementById("fieldSelect");
+    const platformSelect = document.getElementById("platformSelect");
+    const generateButton = document.getElementById("generateButton");
+    const ideaResult = document.getElementById("ideaResult");
+    const ideaTitle = document.getElementById("ideaTitle");
+    const ideaDescription = document.getElementById("ideaDescription");
+    const copyButton = document.getElementById("copyButton");
+    const copyMessage = document.getElementById("copyMessage");
+    const themeButton = document.getElementById("themeButton");
+
+    let currentIdea = "";
+
+    generateButton.addEventListener("click", function () {
+      const fieldIdeas = ideas[fieldSelect.value];
+      const randomIdea =
+        fieldIdeas[Math.floor(Math.random() * fieldIdeas.length)];
+
+      const platform = platformSelect.options[
+        platformSelect.selectedIndex
+      ].text;
+
+      ideaTitle.textContent = randomIdea.title;
+      ideaDescription.textContent =
+        randomIdea.description + " مناسبة لمنصة " + platform + ".";
+
+      currentIdea =
+        randomIdea.title + "\n" +
+        randomIdea.description + "\n" +
+        "المنصة: " + platform;
+
+      ideaResult.style.display = "block";
+      copyMessage.style.display = "none";
+    });
+
+    copyButton.addEventListener("click", async function () {
+      try {
+        await navigator.clipboard.writeText(currentIdea);
+        copyMessage.style.display = "block";
+
+        setTimeout(function () {
+          copyMessage.style.display = "none";
+        }, 2500);
+      } catch (error) {
+        alert("انسخ الفكرة يدويًا من الشاشة.");
+      }
+    });
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      themeButton.textContent =
+        document.body.classList.contains("dark") ? "☀" : "◐";
+    });
+  </script>
+</body>
+</html>
